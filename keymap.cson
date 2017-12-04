@@ -1,0 +1,12 @@
+'atom-text-editor':
+  'alt-t': 'whitespace:convert-tabs-to-spaces'
+  'alt-r': 'whitespace:remove-trailing-whitespace'
+  'alt-w': 'editor:toggle-soft-wrap'
+  'ctrl-shift-A': 'link:open'
+  'ctrl-shift-X': 'textile-preview:toggle'
+
+'atom-workspace':
+  'ctrl-alt-right': 'cursor-history:next-within-editor'
+  'ctrl-alt-left': 'cursor-history:prev-within-editor'
+  'ctrl-shift-alt-right': 'cursor-history:next'
+  'ctrl-shift-alt-left': 'cursor-history:prev'

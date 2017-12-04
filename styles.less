@@ -1,0 +1,181 @@
+.tab-bar, .tree-view {
+    font-family: "Ricty Diminished Discord";
+}
+
+.scrollbars-visible-always ::-webkit-scrollbar {
+    width: auto;
+    height: auto;
+    &-thumb {
+        min-width: 20%;
+        min-height: 20%;
+    }
+}
+
+atom-text-editor,
+.tab-bar,
+.tab-bar .tab:before,
+.tab-bar .tab:after,
+atom-panel,
+atom-text-editor .gutter,
+atom-pane-container atom-pane,
+atom-pane-container atom-pane:focus,
+atom-pane-container atom-pane .item-views .pane-item,
+.atom-dock-mask,
+.focusable-panel:focus,
+.markdown-preview.markdown-preview,
+.textile-preview.textile-preview {
+    background: none;
+}
+.scrollbars-visible-always ::-webkit-scrollbar {
+    &-track, &-corner {
+        background: none;
+    }
+}
+.tab-bar .tab {
+    background-image: -webkit-linear-gradient(top, #454545 0%, #333 5%, rgba(0, 0, 0, 0) 5%);
+}
+.atom-dock-resize-handle {
+    background-color: #222;
+}
+atom-pane-container atom-pane-axis.horizontal > * {
+    border-right: 2px solid #222;
+}
+atom-pane-container atom-pane-axis.vertical > * {
+    border-bottom: 2px solid #222;
+}
+
+
+atom-text-editor:not(.mini)::shadow {
+    .line {
+        .text, .source {
+            background-color: rgba(0, 0, 0, .9);
+        }
+    }
+    .comment {
+        color: rgb(175, 175, 175);
+    }
+}
+
+atom-text-editor {
+    .indent-guide, .invisible-character {
+        color: rgb(125, 125, 125);
+    }
+
+    .gutter-container, .gutter {
+        background-color: rgba(0, 0, 0, .8);
+    }
+    .line-number {
+        opacity: .8;
+    }
+
+    .gutter .cursor-line, .selection .region {
+        background-color: rgba(75, 150, 255, .8);
+    }
+    .line.cursor-line {
+        background: none;
+        outline: solid 1px black;
+    }
+
+    .find-result .region {
+        outline: 1px solid rgb(0, 255, 255);
+    }
+
+    .gutter .line-number.bookmarked .icon-right:before {
+        color: rgb(0, 255, 0);
+    }
+
+    .bracket-matcher {
+        border-bottom: solid 2px red;
+    }
+}
+
+
+.tab-bar, .find-and-replace, .project-find, {
+    background-color: rgba(0, 0, 0, .6);
+}
+
+.footer {
+    background-color: rgba(0, 0, 0, .6)
+}
+
+.tree-view {
+    background-color: rgba(0, 0, 0, .6);
+}
+
+.markdown-preview.markdown-preview,
+.textile-preview.textile-preview {
+    background-color: rgba(0, 0, 0, .6);
+    th, td {
+        border-color: white;
+    }
+}
+
+.scrollbars-visible-always ::-webkit-scrollbar {
+    &-track, &-corner {
+        background-color: rgba(0, 0, 0, .6);
+    }
+}
+
+atom-workspace {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: black;
+}
+
+
+atom-pane-container atom-pane .item-views .pane-item {
+    background-color: rgba(0, 0, 0, .6);
+}
+
+.settings-view {
+    .config-menu {
+        background-color: rgba(0, 0, 0, .5);
+    }
+    .icon-question {
+        color: rgb(200, 200, 200);
+    }
+    .checkbox input {
+        background-color: rgb(100, 100, 100);
+    }
+    .setting-title {
+        color: rgb(200, 200, 200);
+    }
+    .setting-description {
+        color: rgb(160, 160, 160);
+    }
+    select.form-control {
+        color: black;
+        border-color: black;
+        background-color: rgb(140, 140, 140);
+    }
+    select.form-control:hover {
+        background-color: rgb(120, 120, 120);
+    }
+    atom-text-editor::shadow .placeholder-text {
+        color: white;
+    }
+    .sub-section .sub-section-heading.has-items:after {
+        color: rgb(200, 200, 200);
+    }
+    .package-card {
+        background-color: rgba(50, 50, 50, .5);
+        .stats .stats-item .icon {
+            color: rgb(200, 200, 200);
+        }
+        .meta-user {
+            .avatar {
+                background-color: rgba(120, 120, 120, .5);
+            }
+            .author {
+                color: rgb(120, 120, 120);
+            }
+        }
+    }
+    .package-card.disabled:hover {
+        background-color: rgb(30, 30, 30);
+    }
+    .package-card:not(.disabled):hover {
+        background-color: rgba(50, 50, 50, .8);
+    }
+}
