@@ -2,6 +2,8 @@
     font-family: "Ricty Diminished Discord";
 }
 
+@scrollbar-size: 15px;
+@scrollbar-size2: calc(@scrollbar-size + 1px); // hidden if same
 .scrollbars-visible-always ::-webkit-scrollbar {
     width: auto;
     height: auto;
@@ -9,18 +11,33 @@
         min-width: 20%;
         min-height: 20%;
     }
+    min-width: @scrollbar-size;
+    min-height: @scrollbar-size;
+}
+.vertical-scrollbar {
+    width: @scrollbar-size2 !important;
+}
+.horizontal-scrollbar {
+    height: @scrollbar-size2 !important;
+}
+.scrollbar-corner {
+    width: @scrollbar-size2 !important;
+    height: @scrollbar-size2 !important;
 }
 
-atom-text-editor,
 .tab-bar,
 .tab-bar .tab:before,
 .tab-bar .tab:after,
-atom-panel,
+.atom-dock-mask,
+.tree-view,
+atom-text-editor,
+atom-panel.bottom,
 atom-text-editor .gutter,
 atom-pane-container atom-pane,
 atom-pane-container atom-pane:focus,
+.footer,
 atom-pane-container atom-pane .item-views .pane-item,
-.atom-dock-mask,
+.settings-view .config-menu,
 .focusable-panel:focus,
 .markdown-preview.markdown-preview,
 .textile-preview.textile-preview {
@@ -35,41 +52,44 @@ atom-pane-container atom-pane .item-views .pane-item,
     background-image: -webkit-linear-gradient(top, #454545 0%, #333 5%, rgba(0, 0, 0, 0) 5%);
 }
 .atom-dock-resize-handle {
-    background-color: #222;
-}
-atom-pane-container atom-pane-axis.horizontal > * {
-    border-right: 2px solid #222;
-}
-atom-pane-container atom-pane-axis.vertical > * {
-    border-bottom: 2px solid #222;
+    background: #222;
 }
 
+
+@overlay-color: rgba(0, 0, 0, .6);
+
+atom-text-editor .gutter-container,
+atom-text-editor .gutter,
+.tab-bar,
+.find-and-replace, .project-find,
+atom-panel-container.footer,
+.atom-dock-mask,
+atom-pane-container atom-pane .item-views .pane-item {
+    background: @overlay-color;
+}
 
 atom-text-editor:not(.mini)::shadow {
     .line {
         .text, .source {
-            background-color: rgba(0, 0, 0, .9);
+            background: black;
         }
-    }
-    .comment {
-        color: rgb(175, 175, 175);
     }
 }
 
 atom-text-editor {
+    .comment {
+        color: rgb(175, 175, 175);
+    }
     .indent-guide, .invisible-character {
         color: rgb(125, 125, 125);
     }
 
-    .gutter-container, .gutter {
-        background-color: rgba(0, 0, 0, .8);
-    }
     .line-number {
         opacity: .8;
     }
 
     .gutter .cursor-line, .selection .region {
-        background-color: rgba(75, 150, 255, .8);
+        background: rgb(75, 175, 255);
     }
     .line.cursor-line {
         background: none;
@@ -77,42 +97,37 @@ atom-text-editor {
     }
 
     .find-result .region {
-        outline: 1px solid rgb(0, 255, 255);
+        outline: 2px solid rgb(0, 255, 255);
     }
 
     .gutter .line-number.bookmarked .icon-right:before {
         color: rgb(0, 255, 0);
     }
 
-    .bracket-matcher {
+    .bracket-matcher .region {
         border-bottom: solid 2px red;
     }
 }
-
-
-.tab-bar, .find-and-replace, .project-find, {
-    background-color: rgba(0, 0, 0, .6);
+.list-tree li.list-nested-item.status-ignored > .list-item,
+.list-tree li:not(.list-nested-item).status-ignored {
+    color: #777;
 }
 
-.footer {
-    background-color: rgba(0, 0, 0, .6)
-}
-
-.tree-view {
-    background-color: rgba(0, 0, 0, .6);
-}
 
 .markdown-preview.markdown-preview,
 .textile-preview.textile-preview {
-    background-color: rgba(0, 0, 0, .6);
+    background: @overlay-color;
     th, td {
         border-color: white;
     }
 }
 
 .scrollbars-visible-always ::-webkit-scrollbar {
+    &-thumb {
+        background: rgba(0, 0, 0, .5);
+    }
     &-track, &-corner {
-        background-color: rgba(0, 0, 0, .6);
+        background: rgba(255, 255, 255, .3);
     }
 }
 
@@ -124,33 +139,28 @@ atom-workspace {
 }
 
 
-atom-pane-container atom-pane .item-views .pane-item {
-    background-color: rgba(0, 0, 0, .6);
-}
-
 .settings-view {
     .config-menu {
-        background-color: rgba(0, 0, 0, .5);
+        background: @overlay-color;
     }
-    .icon-question {
-        color: rgb(200, 200, 200);
+    .input-checkbox:not(:checked) {
+        background: rgb(100, 100, 100);
     }
-    .checkbox input {
-        background-color: rgb(100, 100, 100);
-    }
+    .icon-question,
+    .text,
     .setting-title {
-        color: rgb(200, 200, 200);
+        color: rgb(220, 220, 220);
     }
     .setting-description {
-        color: rgb(160, 160, 160);
+        color: rgb(150, 150, 150);
     }
     select.form-control {
         color: black;
         border-color: black;
-        background-color: rgb(140, 140, 140);
+        background: rgb(150, 150, 150);
     }
     select.form-control:hover {
-        background-color: rgb(120, 120, 120);
+        background: rgb(120, 120, 120);
     }
     atom-text-editor::shadow .placeholder-text {
         color: white;
@@ -159,13 +169,13 @@ atom-pane-container atom-pane .item-views .pane-item {
         color: rgb(200, 200, 200);
     }
     .package-card {
-        background-color: rgba(50, 50, 50, .5);
+        background: rgba(50, 50, 50, .5);
         .stats .stats-item .icon {
             color: rgb(200, 200, 200);
         }
         .meta-user {
             .avatar {
-                background-color: rgba(120, 120, 120, .5);
+                background: rgba(120, 120, 120, .5);
             }
             .author {
                 color: rgb(120, 120, 120);
@@ -173,9 +183,9 @@ atom-pane-container atom-pane .item-views .pane-item {
         }
     }
     .package-card.disabled:hover {
-        background-color: rgb(30, 30, 30);
+        background: rgb(30, 30, 30);
     }
     .package-card:not(.disabled):hover {
-        background-color: rgba(50, 50, 50, .8);
+        background: rgba(50, 50, 50, .8);
     }
 }
